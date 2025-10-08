@@ -1,7 +1,9 @@
 {
     "watch": [
         "packages/back-end/register/src",
-        "packages/back-end/helper/src"
+        "packages/back-end/helper/src",
+        "packages/back-end/models/src",
+        "packages/back-end/server/src"
     ],
     "ext": "ts,js,json",
     "ignore": [

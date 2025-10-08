@@ -8,7 +8,7 @@ const bootstrap = async () => {
 
   app.use(bodyParser());
   app.use(globalInterceptor);
-  // 🔀 Rutas
+
   for (const route of router) {
     app.use(route.routes()).use(route.allowedMethods());
   }
