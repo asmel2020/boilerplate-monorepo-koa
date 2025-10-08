@@ -1,0 +1,27 @@
+import { Context, Next } from "koa";
+import { HttpException } from "../errors/HttpException";
+
+export const globalInterceptor = async (ctx: Context, next: Next) => {
+  try {
+    await next();
+  } catch (err) {
+    if (err instanceof HttpException) {
+      const { status, message, errors } = err.getResponse();
+      ctx.status = status;
+      ctx.body = {
+        success: false,
+        statusCode: status,
+        message,
+        errors,
+      };
+      return;
+    }
+    console.error(err);
+    ctx.status = 500;
+    ctx.body = {
+      success: false,
+      statusCode: 500,
+      message: "Internal Server Error",
+    };
+  }
+};

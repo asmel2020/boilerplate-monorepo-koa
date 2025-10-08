@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "packages/back-end/register/src",
+        "packages/back-end/helper/src"
+    ],
+    "ext": "ts,js,json",
+    "ignore": [
+        "node_modules"
+    ],
+    "exec": "yarn build:dev && node dist/server.js"
+}

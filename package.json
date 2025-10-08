@@ -1,0 +1,35 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/back-end/**"
+  ],
+  "scripts": {
+    "dev": "yarn server",
+    "server": "nodemon",
+    "build:prod": "yarn build && yarn build:rspack:prod",
+    "build:dev": "yarn build && yarn build:rspack:dev",
+    "build": "lerna run build  --include-dependencies",
+    "build:rspack:prod": "rspack build --config rspack.config.ts --mode=development",
+    "build:rspack:dev": "rspack build --config rspack.config.ts --mode=production",
+    "clean": "lerna run clean",
+    "lint": "lerna run lint",
+    "prebuild": "npm run clean",
+    "start": "lerna run start",
+    "test": "lerna run test",
+    "i:all": "npx lerna exec --",
+    "i:server": "npx lerna exec --scope server --",
+    "i:register": "npx lerna exec --scope register --",
+    "i:models": "npx lerna exec --scope models --"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.5.8",
+    "@rspack/core": "^1.5.8",
+    "concurrently": "^9.2.1",
+    "lerna": "9.0.0",
+    "nodemon": "^3.1.10"
+  },
+  "volta": {
+    "node": "22.16.0"
+  }
+}
