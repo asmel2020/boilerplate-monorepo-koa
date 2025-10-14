@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "description": "Template for TypeScript project using Node.js v22",
   "private": true,
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
+    "build:types": "tsc --project tsconfig.types.json",
     "clean": "rimraf dist",
     "lint": "eslint --ignore-path .gitignore '**/*.{js,cjs,mjs,ts,cts,mts}'",
     "prebuild": "npm run clean",

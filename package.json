@@ -20,7 +20,8 @@
     "i:all": "npx lerna exec --",
     "i:server": "npx lerna exec --scope server --",
     "i:register": "npx lerna exec --scope register --",
-    "i:models": "npx lerna exec --scope models --"
+    "i:models": "npx lerna exec --scope models --",
+    "i:helper": "npx lerna exec --scope helper --"
   },
   "devDependencies": {
     "@rspack/cli": "^1.5.8",
