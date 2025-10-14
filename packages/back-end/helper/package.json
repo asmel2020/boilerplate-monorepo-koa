@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build:l": "tsc --project tsconfig.build.json",
+    "build": "rspack build --config rspack.config.ts --mode=production && yarn build:types ",
     "build:types": "tsc --project tsconfig.types.json",
     "clean": "rimraf dist",
     "lint": "eslint --ignore-path .gitignore '**/*.{js,cjs,mjs,ts,cts,mts}'",

@@ -4,7 +4,8 @@ import { HttpException } from "../errors/HttpException";
 export const globalInterceptor = async (ctx: Context, next: Next) => {
   try {
     await next();
-  } catch (err) {
+  } catch (err: any) {
+    console.log("🚀 globalInterceptor", err instanceof HttpException);
     if (err instanceof HttpException) {
       const { status, message, errors } = err.getResponse();
       ctx.status = status;

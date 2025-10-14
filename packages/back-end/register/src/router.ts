@@ -12,7 +12,7 @@ router.post(
   (ctx: BodyContext<CreateUser>) => {
     const { email, password, username } = ctx.request.body;
     console.log("🚀 Registrando hola", email, password, username);
-    /* sdsssssssss */
+
     ctx.body = { email, password, username };
   }
 );

@@ -13,7 +13,7 @@ WORKDIR /app
 # Copiamos manifests primero para aprovechar la cache de Docker
 COPY package.json lerna.json  rspack.config.ts yarn.lock ./
 
-COPY . .
+COPY packages ./packages
 
 # Instalar dependencias
 RUN yarn install
@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y libvips \
 WORKDIR /app
 
 # Copiar dependencias node_modules compiladas
-COPY --from=build /app/node_modules ./node_modules
+#COPY --from=build /app/node_modules ./node_modules
 # Copiar build final o código fuente
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/package.json .
