@@ -1,0 +1,8 @@
+.git
+node_modules
+dist
+Dockerfile
+Dockerfile.dev
+docker-compose.dev.yml
+npm-debug.log
+yarn-error.log

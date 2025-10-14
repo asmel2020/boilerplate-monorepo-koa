@@ -9,7 +9,7 @@
     "server": "nodemon",
     "build:prod": "yarn build && yarn build:rspack:prod",
     "build:dev": "yarn build && yarn build:rspack:dev",
-    "build": "lerna run build  --include-dependencies",
+    "build": "lerna run build  --include-dependencies --ignore server",
     "build:rspack:prod": "rspack build --config rspack.config.ts --mode=production",
     "build:rspack:dev": "rspack build --config rspack.config.ts --mode=development",
     "clean": "lerna run clean",
