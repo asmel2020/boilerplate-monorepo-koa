@@ -19,6 +19,10 @@ export default defineConfig({
       "@models": path.resolve(__dirname, "packages/back-end/models/src"),
     },
   },
+  externals: {
+    "koa-body": "commonjs koa-body",
+    "@koa/router": "commonjs @koa/router",
+  },
   module: {
     rules: [
       {

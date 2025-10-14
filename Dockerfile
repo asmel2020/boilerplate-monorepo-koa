@@ -3,11 +3,6 @@
 # ----------------------------------------------------
 FROM node:22.16.0-slim AS build
 
-# Instalar dependencias necesarias para Sharp
-RUN apt-get update && apt-get install -y \
-    python3 make g++ libc6-dev libvips-dev \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
 # Copiamos manifests primero para aprovechar la cache de Docker
@@ -25,10 +20,6 @@ RUN yarn build:prod
 # Etapa 2 - Runtime ligero
 # ----------------------------------------------------
 FROM node:22.16.0-slim
-
-# Instalar solo dependencias necesarias en runtime
-RUN apt-get update && apt-get install -y libvips \
-    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
